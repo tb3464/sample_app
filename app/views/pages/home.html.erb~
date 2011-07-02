@@ -1,0 +1,5 @@
+<h1>Pages#home</h1>
+<script type="text/javascript">
+document.write("i am js perras");
+</script>
+<p>Find me in app/views/pages/home.html.erb</p>
