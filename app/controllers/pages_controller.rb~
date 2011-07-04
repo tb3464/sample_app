@@ -15,8 +15,4 @@ class PagesController < ApplicationController
       @title = "Help"
   end
 
-  def map
-      @title = "Map"
-  end
-
 end
