@@ -1,21 +1,49 @@
-
-
-function addMarker(lat, lng, description)
-{
-	var marker = new GMarker(new GLatLng(lat, lng));
-
-	GEvent.addListener(marker, 'click',
-	    function() {
-	    	marker.openInfoWindowHtml(description);
-	    }
-	);
-
-	map.addOverlay(marker);
+var markersArray = [];
+function writeShit(str) {
+	document.write(str);
 }
 
-function addMarkers(anArray)
-{
-	for (id in markers) {
-		addMarker(markers[id].latitude, markers[id].longitude, markers[id].name);
-	}
+function addMarker(loc) {
+	var marker = new google.maps.Marker({
+		position: loc,
+    		map: map,
+		draggable: true,
+		animation: google.maps.Animation.DROP	    
+	});
+	markersArray.push(marker);
+	debug(" addMarker ran. ");
+	debug(markersArray.length + "points ");
 }
+
+function debug(str) {
+div = document.getElementById("debug");
+alert = document.createTextNode(str);
+div.appendChild(alert);
+}
+
+function clearOverlays() {
+  if (markersArray) {
+    for (i in markersArray) {
+      markersArray[i].setMap(null);
+    }
+  }
+}
+
+function showOverlays() {
+  if (markersArray) {
+    for (i in markersArray) {
+      markersArray[i].setMap(map);
+    }
+  }
+}
+
+function deleteOverlays() {
+  if (markersArray) {
+    for (i in markersArray) {
+      markersArray[i].setMap(null);
+    }
+    markersArray.length=0;
+  }
+}
+ 
+

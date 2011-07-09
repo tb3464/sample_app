@@ -1,20 +1,25 @@
-var cLat = 40.6897;
-var cLng = -95.0446;
-var startZoom = 3;
-var description = "Golden Gate Bridge";
-
 var map;
 
-function init()
-{
-	map = new GMap2(document.getElementById("map"));
-	var location = new GLatLng(cLat, cLng);
-	map.addControl(new GSmallMapControl());
-	map.setCenter(location, startZoom);
+function init() {
+	var latlng = new google.maps.LatLng(57.8, 14.0);
+	var options = {
+		zoom: 6,
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	map = new google.maps.Map(document.getElementById('map'), options);
 
-	//addMarker(cLat, cLng, description);
-	addMarkers(markers);
+	var marker = new google.maps.Marker({
+		position: latlng,
+		title: "Hello World!"
+	});
+	marker.setMap(map);
+	
+	google.maps.event.addListener(map, 'click', function(event) {
+		addMarker(event.latLng);
+	});
+	debug("initialized OK  ");
 }
 
-window.onload = init;
-window.onunload = GUnload;
+ window.onload=init;
+

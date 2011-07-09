@@ -2,4 +2,10 @@
 <p>
 This is the map page
 </p>
-<div id="map" style="width: 1000px; height: 300px;"></div>
+<div>
+  <input onclick="clearOverlays();" type=button value="Clear Overlays"/>
+  <input onclick="showOverlays()" type=button value="Show Overlays"/>   
+  <input onclick="deleteOverlays()" type=button value="Delete Overlays"/>
+</div>
+<div id="debug"></div>
+<div id="map" style="width: 600px; height: 300px;"></div>
