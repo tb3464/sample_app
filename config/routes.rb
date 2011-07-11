@@ -2,7 +2,6 @@ SampleApp::Application.routes.draw do
  
   resources :users
  
-  get '/users/new' 
   match '/map', :to => 'pages#map'
   match '/signup', :to => 'users#new'
   
